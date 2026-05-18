@@ -1,0 +1,6 @@
+services:
+  - type: web
+    name: hrms-attendance-system
+    runtime: dotnet
+    buildCommand: dotnet publish -c Release -o out
+    startCommand: dotnet out/HRMS_MVC.dll
