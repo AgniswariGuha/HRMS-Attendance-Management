@@ -1,0 +1,253 @@
+@model List<HRMS_MVC.Models.Attendance>
+
+<link rel="stylesheet" href="~/css/site.css" />
+
+<div class="container py-5">
+
+    <!-- Header -->
+
+  <div class="hero-section mb-4">
+
+    <div class="hero-content">
+
+        <div>
+
+            <h1 class="hero-title">
+                HR Dashboard
+            </h1>
+
+            <p class="hero-subtitle">
+                Manage employee attendance, monitor daily activity,
+                and track working hours efficiently.
+            </p>
+
+        </div>
+
+        <div class="hero-icon">
+        </div>
+
+    </div>
+
+</div>
+    <!-- Dashboard Summary Cards -->
+
+    <div class="row mb-4">
+
+        <div class="col-md-3 mb-3">
+
+            <div class="dashboard-card card-total">
+
+                <h6 class="mb-2">
+                    Total Employees
+                </h6>
+
+                <h2 class="fw-bold">
+                    @ViewBag.TotalEmployees
+                </h2>
+
+            </div>
+
+        </div>
+
+        <div class="col-md-3 mb-3">
+
+            <div class="dashboard-card card-present">
+
+                <h6 class="mb-2">
+                    Present
+                </h6>
+
+                <h2 class="fw-bold">
+                    @ViewBag.PresentCount
+                </h2>
+
+            </div>
+
+        </div>
+
+        <div class="col-md-3 mb-3">
+
+            <div class="dashboard-card card-halfday">
+
+                <h6 class="mb-2">
+                    Half Day
+                </h6>
+
+                <h2 class="fw-bold">
+                    @ViewBag.HalfDayCount
+                </h2>
+
+            </div>
+
+        </div>
+
+        <div class="col-md-3 mb-3">
+
+            <div class="dashboard-card card-absent">
+
+                <h6 class="mb-2">
+                    Absent
+                </h6>
+
+                <h2 class="fw-bold">
+                    @ViewBag.AbsentCount
+                </h2>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Filter Section -->
+
+    <div class="custom-table p-4 mb-4">
+
+        <h5 class="mb-4 fw-semibold">
+            Filter Attendance
+        </h5>
+
+        <form method="get">
+
+            <div class="row">
+
+                <div class="col-md-4 mb-3">
+
+                    <input type="number"
+                           name="employeeId"
+                           class="form-control custom-input"
+                           placeholder="Enter Employee ID" />
+
+                </div>
+
+                <div class="col-md-4 mb-3">
+
+                    <input type="date"
+                           name="attendanceDate"
+                           class="form-control custom-input" />
+
+                </div>
+
+                <div class="col-md-4 mb-3">
+
+                    <button class="custom-btn checkin-btn w-100">
+                        Apply Filter
+                    </button>
+
+                </div>
+
+            </div>
+
+        </form>
+
+    </div>
+
+    <!-- Attendance Table -->
+
+    <div class="custom-table p-3">
+
+        <div class="d-flex justify-content-between align-items-center mb-3">
+
+            <h5 class="fw-semibold mb-0">
+                Attendance Records
+            </h5>
+
+            <span class="text-muted">
+                Total Records: @Model.Count
+            </span>
+
+        </div>
+
+        <table class="table align-middle">
+
+            <thead>
+
+                <tr>
+                    <th>Employee ID</th>
+                    <th>Name</th>
+                    <th>Date</th>
+                    <th>Check In</th>
+                    <th>Check Out</th>
+                    <th>Hours</th>
+                    <th>Status</th>
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+                @if(Model.Count == 0)
+                {
+                    <tr>
+
+                        <td colspan="7"
+                            class="text-center text-muted py-4">
+
+                            No attendance records found
+
+                        </td>
+
+                    </tr>
+                }
+
+                else
+                {
+                    @foreach(var item in Model)
+                    {
+                        <tr>
+
+                            <td>
+                                #@item.UserId
+                            </td>
+
+                            <td>
+                                @item.User?.Name
+                            </td>
+
+                            <td>
+                                @item.AttendanceDate.ToShortDateString()
+                            </td>
+
+                            <td>
+                                @(item.CheckInTime?.ToString("hh:mm tt") ?? "-")
+                            </td>
+
+                            <td>
+                                @(item.CheckOutTime?.ToString("hh:mm tt") ?? "-")
+                            </td>
+
+                            <td>
+                                @item.WorkingHours hrs
+                            </td>
+
+                            <td>
+
+                                @{
+                                    var statusClass = item.Status switch
+                                    {
+                                        "Present" => "present",
+                                        "Half Day" => "halfday",
+                                        "Absent" => "absent",
+                                        _ => "pending"
+                                    };
+                                }
+
+                                <span class="status-badge @statusClass">
+
+                                    @item.Status
+
+                                </span>
+
+                            </td>
+
+                        </tr>
+                    }
+                }
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</div>

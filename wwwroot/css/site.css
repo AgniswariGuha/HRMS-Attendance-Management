@@ -1,0 +1,183 @@
+body {
+  background: #f8f6ff;
+  font-family: "Poppins", sans-serif;
+  color: #444;
+}
+
+/* Navbar / Header */
+.page-header {
+  background: white;
+  padding: 20px;
+  border-radius: 18px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+/* Dashboard Cards */
+.dashboard-card {
+  border: none;
+  border-radius: 20px;
+  padding: 25px;
+  color: #444;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  transition: 0.3s;
+}
+
+.dashboard-card:hover {
+  transform: translateY(-4px);
+}
+
+/* Pastel Colors */
+.card-present {
+  background: #d8f3dc;
+}
+
+.card-halfday {
+  background: #ffe5b4;
+}
+
+.card-absent {
+  background: #ffccd5;
+}
+
+.card-total {
+  background: #e0c3fc;
+}
+
+/* Buttons */
+.custom-btn {
+  border: none;
+  border-radius: 14px;
+  padding: 10px 22px;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.checkin-btn {
+  background: #b7efc5;
+}
+
+.checkout-btn {
+  background: #ffd6a5;
+}
+
+.logout-btn {
+  background: #ffb3c1;
+}
+
+.custom-btn:hover {
+  transform: scale(1.03);
+}
+
+/* Table */
+.custom-table {
+  background: white;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.custom-table th {
+  background: #f3ecff;
+  color: #555;
+  border: none;
+}
+
+.custom-table td {
+  vertical-align: middle;
+}
+
+/* Status Badge */
+.status-badge {
+  padding: 8px 14px;
+  border-radius: 30px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.present {
+  background: #d8f3dc;
+  color: #2d6a4f;
+}
+
+.halfday {
+  background: #ffe5b4;
+  color: #bc6c25;
+}
+
+.absent {
+  background: #ffccd5;
+  color: #d90429;
+}
+
+.pending {
+  background: #dee2e6;
+  color: #495057;
+}
+
+/* Forms */
+.custom-input {
+  border-radius: 12px;
+  padding: 12px;
+  border: 1px solid #ddd;
+}
+
+/* Login/Register Card */
+.auth-card {
+  border-radius: 24px;
+  border: none;
+  background: white;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+}
+.custom-navbar {
+  background: white;
+  border-radius: 0 0 24px 24px;
+  padding-top: 16px;
+  padding-bottom: 16px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
+}
+
+.navbar-brand {
+  font-size: 24px;
+  color: #6d597a !important;
+}
+
+.logout-btn {
+  background: #ffcad4;
+  border: none;
+  border-radius: 12px;
+  padding: 8px 16px;
+}
+.logout-btn:hover {
+  background: #ffb3c1;
+}
+.hero-section {
+  background: linear-gradient(135deg, #f3d9fa, #fde2e4, #e2f0cb);
+
+  border-radius: 28px;
+  padding: 40px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+}
+
+.hero-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.hero-title {
+  font-size: 42px;
+  font-weight: 700;
+  color: #4a4e69;
+  margin-bottom: 10px;
+}
+
+.hero-subtitle {
+  font-size: 17px;
+  color: #6c757d;
+  max-width: 600px;
+  margin-bottom: 0;
+}
+
+.hero-icon {
+  font-size: 72px;
+}
